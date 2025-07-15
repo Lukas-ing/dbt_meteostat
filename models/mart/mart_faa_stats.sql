@@ -63,4 +63,4 @@ INNER JOIN tot_dflights_dep e USING (origin)
 INNER JOIN tot_dflights_arr f ON a.origin = f.DEST
 INNER JOIN tot_flights_dep g USING (origin)
 INNER JOIN tot_flights_arr h ON a.origin = h.dest
-INNER JOIN prep_airports i ON a.origin = i.faa
+INNER JOIN {{ref('prep_airports')}} i ON a.origin = i.faa
