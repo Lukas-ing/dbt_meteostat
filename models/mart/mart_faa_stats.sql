@@ -62,4 +62,4 @@ INNER JOIN tot_cflights_arr d ON a.origin = d.dest
 INNER JOIN tot_dflights_dep e USING (origin)
 INNER JOIN tot_dflights_arr f ON a.origin = f.DEST
 INNER JOIN tot_flights_dep g USING (origin)
-INNER JOIN tot_flights_arr h ON a.origin = h.dest;
+INNER JOIN tot_flights_arr h ON a.origin = h.dest
