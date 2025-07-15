@@ -46,7 +46,7 @@ FROM {{ref('prep_flights')}}
 WHERE CANCELLED = 0
 GROUP BY dest
 )
-SELECT a.origin AS airport, 
+SELECT i.faa, i.CITY, i.country,
 a.NUMER_OF_UNIQUE_DEP_CONNECTIONS,
 b.NUMER_OF_UNIQUE_ARR_CONNECTIONS,
 c.TOTAL_CANCELED_DEP,
@@ -63,3 +63,4 @@ INNER JOIN tot_dflights_dep e USING (origin)
 INNER JOIN tot_dflights_arr f ON a.origin = f.DEST
 INNER JOIN tot_flights_dep g USING (origin)
 INNER JOIN tot_flights_arr h ON a.origin = h.dest
+INNER JOIN prep_airports i ON a.origin = i.faa
